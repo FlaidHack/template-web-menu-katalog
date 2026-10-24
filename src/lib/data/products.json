@@ -1,0 +1,181 @@
+{
+	"categories": ["Makanan", "Minuman", "Camilan", "Paket Hemat"],
+	"products": [
+		{
+			"id": "bakso-spesial",
+			"name": "Bakso Spesial",
+			"category": "Makanan",
+			"price": 25000,
+			"unit": "porsi",
+			"image": "/products/bakso.jpg",
+			"description": "Bakso sapi kenyal dengan kuah kaldu bening, mie, dan taburan seledri.",
+			"variants": [
+				{ "label": "Biasa", "price": 25000 },
+				{ "label": "Jumbo", "price": 35000 }
+			],
+			"badge": "Terlaris",
+			"popular": true
+		},
+		{
+			"id": "mie-ayam",
+			"name": "Mie Ayam",
+			"category": "Makanan",
+			"price": 20000,
+			"unit": "porsi",
+			"image": "/products/Mie Ayam.jpg",
+			"description": "Mie kuning dengan ayam kecap, sawi, dan kuah kaldu terpisah.",
+			"variants": [
+				{ "label": "Biasa", "price": 20000 },
+				{ "label": "Jumbo", "price": 27000 }
+			]
+		},
+		{
+			"id": "nasi-goreng-kampung",
+			"name": "Nasi Goreng Kampung",
+			"category": "Makanan",
+			"price": 22000,
+			"unit": "porsi",
+			"image": "/products/nasi goreng.jpg",
+			"description": "Nasi goreng dengan teri, kangkung, telur, dan sambal terasi."
+		},
+		{
+			"id": "mi-kuah",
+			"name": "Mi Kuah",
+			"category": "Makanan",
+			"price": 25000,
+			"unit": "porsi",
+			"image": "/products/mi kuah.jpg",
+			"description": "Mi kuah dengan kuah kaldu, sawi, dan topping ayam.",
+			"badge": "Baru"
+		},
+		{
+			"id": "ayam-geprek",
+			"name": "Ayam Geprek",
+			"category": "Makanan",
+			"price": 18000,
+			"unit": "porsi",
+			"image": "/products/ayam goreng.jpg",
+			"description": "Ayam goreng tepung digeprek dengan sambal bawang, plus nasi hangat.",
+			"variants": [
+				{ "label": "Level 1", "price": 18000 },
+				{ "label": "Level 3", "price": 18000 },
+				{ "label": "Level 5", "price": 18000 }
+			]
+		},
+		{
+			"id": "mie-goreng",
+			"name": "Mie Goreng",
+			"category": "Makanan",
+			"price": 20000,
+			"unit": "porsi",
+			"image": "/products/mi goreng.jpg",
+			"description": "Mie goreng dengan sayur, telur, dan bumbu kecap manis."
+		},
+		{
+			"id": "nasi-chicken-katsu",
+			"name": "Nasi Chicken Katsu",
+			"category": "Makanan",
+			"price": 25000,
+			"unit": "porsi",
+			"image": "/products/nasi chiken katsu.jpg",
+			"description": "Nasi hangat dengan ayam katsu renyah dan saus spesial."
+		},
+		{
+			"id": "sate",
+			"name": "Sate",
+			"category": "Makanan",
+			"price": 25000,
+			"unit": "porsi",
+			"image": "/products/sate.jpg",
+			"description": "Sate ayam dengan bumbu kacang dan lontong."
+		},
+		{
+			"id": "es-teh",
+			"name": "Es Teh",
+			"category": "Minuman",
+			"price": 5000,
+			"unit": "gelas",
+			"description": "Teh seduh pekat dengan es batu, manisnya bisa diminta."
+		},
+		{
+			"id": "es-jeruk",
+			"name": "Es Jeruk",
+			"category": "Minuman",
+			"price": 8000,
+			"unit": "gelas",
+			"description": "Jeruk peras segar dengan es dan sedikit gula."
+		},
+		{
+			"id": "kopi-susu",
+			"name": "Kopi Susu",
+			"category": "Minuman",
+			"price": 15000,
+			"unit": "gelas",
+			"description": "Espresso lokal dengan susu segar dan es batu.",
+			"variants": [
+				{ "label": "Regular", "price": 15000 },
+				{ "label": "Large", "price": 20000 }
+			],
+			"badge": "Terlaris"
+		},
+		{
+			"id": "es-cendol",
+			"name": "Es Cendol",
+			"category": "Minuman",
+			"price": 12000,
+			"unit": "gelas",
+			"description": "Cendol pandan, santan, dan gula aren cair.",
+			"stock": "terbatas"
+		},
+		{
+			"id": "pisang-goreng",
+			"name": "Pisang Goreng",
+			"category": "Camilan",
+			"price": 10000,
+			"unit": "porsi",
+			"description": "Pisang kepok goreng renyah, disajikan hangat.",
+			"stock": "habis"
+		},
+		{
+			"id": "tahu-crispy",
+			"name": "Tahu Crispy",
+			"category": "Camilan",
+			"price": 10000,
+			"unit": "porsi",
+			"description": "Tahu goreng kering dengan bumbu tabur gurih."
+		},
+		{
+			"id": "batagor",
+			"name": "Batagor",
+			"category": "Camilan",
+			"price": 15000,
+			"unit": "porsi",
+			"description": "Bakso tahu goreng dengan saus kacang dan kecap."
+		},
+		{
+			"id": "paket-hemat",
+			"name": "Paket Hemat",
+			"category": "Paket Hemat",
+			"price": 23000,
+			"unit": "paket",
+			"description": "Satu porsi mie ayam plus satu gelas es teh.",
+			"popular": true
+		},
+		{
+			"id": "paket-berdua",
+			"name": "Paket Berdua",
+			"category": "Paket Hemat",
+			"price": 45000,
+			"unit": "paket",
+			"description": "Dua porsi bakso biasa dan dua gelas es teh."
+		},
+		{
+			"id": "nasi-kotak",
+			"name": "Nasi Kotak",
+			"category": "Paket Hemat",
+			"price": null,
+			"unit": "box",
+			"description": "Nasi, lauk pilihan, dan sayur untuk acara. Minimal pesan 10 box, harga menyesuaikan lauk."
+		}
+	]
+}
