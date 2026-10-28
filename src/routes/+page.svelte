@@ -56,10 +56,10 @@
 		<div class="mx-auto max-w-6xl">
 			<div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-8">
 				<div class="min-w-0 lg:col-span-7 lg:pt-8">
-					<p class="mono-label text-brand">LOA JANAN, SAMARINDA · MASAK TIAP HARI</p>
+					<p class="mono-label text-brand">LOA JANAN ILIR, SAMARINDA</p>
 					<h1 class="mt-5 max-w-3xl break-words font-display text-[clamp(2.9rem,12vw,7.5rem)] font-bold leading-[0.82] tracking-[-0.075em]">
 						Rasa rumah,<br />
-						<span class="font-serif font-medium italic tracking-[-0.06em]">tanpa perlu<br class="sm:hidden" /> pulang.</span>
+						<span class="font-serif font-medium italic tracking-[-0.06em]">tanpa perlu<br class="sm:hidden" /> <span class="inline-block bg-brand px-[0.1em] text-paper">pulang.</span></span>
 					</h1>
 					<p class="mt-7 max-w-xl font-serif text-xl leading-[1.3] text-ink/75 sm:text-2xl">
 						Bakso, mie ayam, soto, dan camilan dari dapur kami. Pilih menu, tulis pesanan, lalu kirim langsung ke WhatsApp.
@@ -70,22 +70,24 @@
 					</div>
 				</div>
 
-				<div class="relative mx-auto w-full max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
-					<div class="absolute inset-x-4 bottom-[-14px] top-5 bg-brand"></div>
-					<a href="/menu" class="relative block border border-ink bg-paper" aria-label="Lihat menu">
-						<img
-							src="/landing.jpg"
-							alt="Pilihan hidangan Rumah Makan Citarasa"
-							width="720"
-							height="1280"
-							fetchpriority="high"
-							class="aspect-[4/5] w-full object-cover"
-						/>
-					</a>
-					<div class="relative mt-4 flex items-start gap-3 border-t border-ink pt-3">
+				<div class="mx-auto w-full max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
+					<div class="relative">
+						<div class="absolute inset-x-4 bottom-[-14px] top-5 bg-brand"></div>
+						<a href="/menu" class="relative block border border-ink bg-paper" aria-label="Lihat menu">
+							<img
+								src="/landing.jpg"
+								alt="Pilihan hidangan Warung Citarasa"
+								width="720"
+								height="1280"
+								fetchpriority="high"
+								class="aspect-[4/5] w-full object-cover"
+							/>
+						</a>
+					</div>
+					<div class="relative mt-5 flex items-start gap-3 border-t border-ink pt-3">
 						<span class="font-mono text-sm text-brand">01</span>
 						<p class="font-serif text-base leading-snug">
-							<strong class="font-display">Rumah Makan Citarasa.</strong> Dari dapur, langsung ke meja makanmu.
+							<strong class="font-display">Warung Citarasa.</strong> Dari dapur, langsung ke meja makanmu.
 						</p>
 					</div>
 				</div>
@@ -119,7 +121,7 @@
 			<p class="mt-5 max-w-5xl font-serif text-[clamp(2.2rem,5.2vw,5rem)] leading-[0.95] tracking-[-0.045em]">
 				“Tidak ada resep rahasia. Yang kami jaga cuma api, kaldu, dan jam buka.”
 			</p>
-			<p class="mt-7 font-display text-sm font-semibold">Warung Contoh Rasa</p>
+			<p class="mt-7 font-display text-sm font-semibold">Warung Citarasa</p>
 		</div>
 	</section>
 
@@ -128,7 +130,7 @@
 			<div class="lg:col-span-4">
 				<p class="mono-label text-brand">YANG KAMI JAGA</p>
 				<h2 class="mt-4 max-w-sm font-display text-[clamp(2.5rem,4.5vw,4.5rem)] font-bold leading-[0.9] tracking-[-0.065em]">
-					Makan enak, tanpa banyak gaya.
+					Makan enak, tanpa banyak <span class="inline-block bg-brand px-[0.08em] text-paper">gaya.</span>
 				</h2>
 			</div>
 

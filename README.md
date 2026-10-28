@@ -11,6 +11,8 @@ src/
     +layout.svelte      # Header + footer global
     menu/
       +page.svelte      # Halaman katalog sendiri + nota pesanan
+    lokasi/
+      +page.svelte      # Peta Google Maps + detail alamat dan jam buka
   lib/
     config.ts           # Satu-satunya sumber data klien (nama, WA, jam, warna, dll.)
     data/products.json  # Data produk dummy
@@ -22,9 +24,8 @@ src/
     components/         # SiteHeader, SiteFooter, MenuRow, ProductSheet, CartDrawer, StoreInfo
   app.css               # Design system (warna, font, tekstur, komponen dasar)
 static/
-  landing.jpg, banner.jpg, og.jpg, favicon.svg, products/*.jpg
+  landing.jpg, banner.webp, og.jpg, favicon.svg, products/*
 scripts/
-  optimize-images.mjs   # resize + kompres foto produk
   make-og.mjs           # generate og.jpg
 ```
 
@@ -45,15 +46,14 @@ Edit satu file: `src/lib/config.ts` (nama, tagline, WA, alamat, jam buka, warna 
 
 ## Ganti foto
 
-1. Taruh foto asli di `raw-images/` (nama bebas).
-2. Jalankan `npm run images` → foto produk dikompres ke `static/products/`.
-3. Update `image` di `src/lib/data/products.json` agar path cocok.
-4. Ganti `static/landing.jpg` (hero landing) dan `static/banner.jpg` (atas `/menu`).
-5. Jalankan `npm run og` → regenerasi `static/og.jpg` untuk preview media sosial.
+1. Simpan foto produk langsung di `static/products/` (disarankan .webp, lebar maks. 800px).
+2. Update `image` di `src/lib/data/products.json` agar path cocok (contoh `/products/nama-file.webp`).
+3. Ganti `static/landing.jpg` (hero landing) dan `static/banner.webp` (atas `/menu`).
+4. Jalankan `npm run og` → regenerasi `static/og.jpg` untuk preview media sosial.
 
 ## Tambah / ubah produk
 
-Edit `src/lib/data/products.json`. Setiap produk butuh `id`, `name`, `category`, `price` (boleh `null` untuk "tanya harga"), `unit`, `description`. Opsional: `image`, `variants[]`, `stock` (`habis` / `terbatas`), `popular`.
+Edit `src/lib/data/products.json` dan taruh gambarnya langsung di `static/products/`. Setiap produk butuh `id`, `name`, `category`, `price` (boleh `null` untuk "tanya harga"), `unit`, `description`. Opsional: `image`, `variants[]`, `stock` (`habis` / `terbatas`), `popular`.
 
 ## Preset usaha lain
 

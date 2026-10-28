@@ -29,7 +29,7 @@
 			<div>
 				<p class="mono-label text-ink/55">JAM HARI INI</p>
 				<p class="mt-2 font-mono text-sm">{DAY_NAMES[today]} · {formatHours(config.hours[today])}</p>
-				<a href="/#kunjungi" class="text-link mt-3 inline-block">Lihat jam lengkap</a>
+				<a href="/lokasi" class="text-link mt-3 inline-block">Lihat jam lengkap</a>
 			</div>
 
 			<div>

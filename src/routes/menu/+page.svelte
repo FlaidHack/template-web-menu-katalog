@@ -90,10 +90,10 @@
 <main class="pb-28 lg:pb-16">
 	<section class="relative overflow-hidden border-b-2 border-ink bg-ink text-paper">
 		<img
-			src="/banner.jpg"
+			src="/banner.webp"
 			alt=""
-			width="1200"
-			height="630"
+			width="1920"
+			height="1280"
 			fetchpriority="high"
 			class="absolute inset-0 h-full w-full object-cover object-center-right opacity-90"
 		/>
@@ -136,7 +136,7 @@
 				{/if}
 			</div>
 
-			<div class="-mx-4 mt-4 overflow-x-auto px-4 [scrollbar-width:none]">
+			<div class="-mx-4 mt-4 overflow-x-auto px-4 scrollbar-none">
 				<div class="flex min-w-max items-center gap-x-5 text-sm sm:gap-x-7" role="group" aria-label="Filter kategori">
 					{#each [ALL_CATEGORY, ...categories] as category (category)}
 						<button
@@ -204,7 +204,7 @@
 				</div>
 			{:else}
 				<div class="border-y-2 border-ink py-12">
-					<p class="font-display text-3xl font-bold tracking-[-0.05em]">Belum ketemu.</p>
+					<p class="font-display text-3xl font-bold tracking">Belum ketemu.</p>
 					<p class="mt-3 max-w-md font-serif text-lg leading-relaxed text-ink/70">Tidak ada menu untuk “{query}”. Coba nama makanan lain atau pilih kategori berbeda.</p>
 					<button type="button" class="text-link mt-5 text-sm" onclick={() => { query = ''; activeCategory = ALL_CATEGORY; }}>Tampilkan semua menu</button>
 				</div>

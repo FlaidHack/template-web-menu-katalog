@@ -38,6 +38,7 @@ export type BusinessConfig = {
 	whatsapp: string;
 	address: string;
 	mapsUrl: string;
+	mapEmbedUrl: string;
 	timezone: string;
 	hours: Record<number, DayHours>;
 	fulfillment: FulfillmentConfig;
@@ -53,13 +54,14 @@ export type BusinessConfig = {
 };
 
 export const config: BusinessConfig = {
-	name: 'Rumah Makan Citarasa',
+	name: 'Warung Citarasa',
 	tagline: 'Masakan rumahan, pesan dari HP',
 	description:
-		'Bakso, mie ayam, soto, dan camilan rumahan di Loa Janan, Samarinda. Pilih menu, pesan langsung lewat WhatsApp.',
-	whatsapp: '6281234567890',
-	address: 'Jl. Contoh No. 1, Loa Janan, Samarinda',
-	mapsUrl: 'https://maps.google.com/?q=Warung+Contoh+Rasa+Loa+Janan+Samarinda',
+		'Bakso, mie ayam, soto, dan camilan rumahan di Loa Janan Ilir, Samarinda. Pilih menu, pesan langsung lewat WhatsApp.',
+	whatsapp: '6285753421213',
+	address: 'Kawasan Jessica Water Park, Jl. Balikpapan-Samarinda, Loa Janan Ilir, Samarinda',
+	mapsUrl: 'https://maps.google.com/?q=Jessica+Water+Park+Samarinda',
+	mapEmbedUrl: 'https://www.google.com/maps?q=Jessica+Water+Park+Samarinda&z=16&output=embed',
 	timezone: 'Asia/Makassar',
 	hours: {
 		0: ['10:00', '21:00'],

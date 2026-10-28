@@ -7,7 +7,8 @@ const WIDTH = 1200;
 const HEIGHT = 630;
 const OUTPUT = path.resolve('static/og.jpg');
 const PHOTO_CANDIDATES = [
-	path.resolve('static/products/bakso-spesial.webp'),
+	path.resolve('static/products/bakso.jpg'),
+	path.resolve('static/products/sate.jpg'),
 	path.resolve('static/products/placeholder.svg')
 ];
 
@@ -32,9 +33,40 @@ async function findPhoto() {
 	return null;
 }
 
+function wrapAddress(value, maxChars = 56) {
+	const parts = value
+		.split(',')
+		.map((part) => part.trim())
+		.filter(Boolean);
+	const lines = [];
+	let line = '';
+
+	for (const part of parts) {
+		const next = line ? `${line}, ${part}` : part;
+
+		if (next.length > maxChars && line) {
+			lines.push(line);
+			line = part;
+		} else {
+			line = next;
+		}
+	}
+
+	if (line) lines.push(line);
+	return lines.length > 1 ? [lines[0], lines.slice(1).join(', ')] : lines;
+}
+
 function overlay() {
 	const name = escapeXml(config.name);
 	const tagline = escapeXml(config.tagline);
+	const addressLines = wrapAddress(config.address);
+	const addressY = addressLines.length > 1 ? 524 : 548;
+	const address = addressLines
+		.map(
+			(line, index) =>
+				`<text x="${WIDTH - 64}" y="${addressY + index * 24}" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#FFFFFF" fill-opacity="0.7">${escapeXml(line)}</text>`
+		)
+		.join('');
 
 	return Buffer.from(`
 		<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}">
@@ -51,7 +83,7 @@ function overlay() {
 			<text x="64" y="168" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#FFFFFF">${name}</text>
 			<text x="64" y="232" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#FFFFFF" fill-opacity="0.82">${tagline}</text>
 			<text x="64" y="548" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">${escapeXml(config.labels.sendOrder)}</text>
-			<text x="${WIDTH - 64}" y="552" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#FFFFFF" fill-opacity="0.7">${escapeXml(config.address)}</text>
+			${address}
 		</svg>
 	`);
 }

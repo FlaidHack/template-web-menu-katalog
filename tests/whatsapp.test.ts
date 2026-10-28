@@ -125,9 +125,9 @@ describe('buildOrderMessage', () => {
 describe('buildWaUrl', () => {
 	it('meng-encode karakter spesial dan baris baru', () => {
 		const message = 'Halo & pesan #1 🍜\nBaris dua';
-		const url = buildWaUrl('+62 812-3456-7890', message);
+		const url = buildWaUrl('+62 857-5342-1213', message);
 
-		expect(url.startsWith('https://wa.me/6281234567890?text=')).toBe(true);
+		expect(url.startsWith('https://wa.me/6285753421213?text=')).toBe(true);
 		expect(url).toContain('%26');
 		expect(url).toContain('%23');
 		expect(url).toContain('%F0%9F%8D%9C');
@@ -146,7 +146,7 @@ describe('buildWaUrl', () => {
 		const message = buildOrderMessage({
 			lines: longLines,
 			customerName: 'Budi',
-			fulfillment: { mode: 'delivery', address: 'Jl. Contoh No. 1, Loa Janan, Samarinda' }
+			fulfillment: { mode: 'delivery', address: config.address }
 		});
 		const url = buildWaUrl(config.whatsapp, message);
 

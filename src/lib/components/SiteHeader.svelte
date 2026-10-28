@@ -5,7 +5,7 @@
 	const navItems = [
 		{ href: '/', label: 'Beranda' },
 		{ href: '/menu', label: 'Menu' },
-		{ href: '/#kunjungi', label: 'Kunjungi' }
+		{ href: '/lokasi', label: 'Kunjungi' }
 	];
 </script>
 
