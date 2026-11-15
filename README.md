@@ -24,7 +24,7 @@ src/
     components/         # SiteHeader, SiteFooter, MenuRow, ProductSheet, CartDrawer, StoreInfo
   app.css               # Design system (warna, font, tekstur, komponen dasar)
 static/
-  landing.jpg, banner.webp, og.jpg, favicon.svg, products/*
+  banner.webp, og.jpg, favicon.svg, products/*
 scripts/
   make-og.mjs           # generate og.jpg
 ```
@@ -48,8 +48,9 @@ Edit satu file: `src/lib/config.ts` (nama, tagline, WA, alamat, jam buka, warna 
 
 1. Simpan foto produk langsung di `static/products/` (disarankan .webp, lebar maks. 800px).
 2. Update `image` di `src/lib/data/products.json` agar path cocok (contoh `/products/nama-file.webp`).
-3. Ganti `static/landing.jpg` (hero landing) dan `static/banner.webp` (atas `/menu`).
-4. Jalankan `npm run og` → regenerasi `static/og.jpg` untuk preview media sosial.
+3. Hero landing memakai foto dari 4 produk di `heroDishes` (`src/routes/+page.svelte`): Bakso Spesial, Mie Ayam, Nasi Goreng Kampung, dan Sate. Ganti `id` atau `image` produknya untuk mengganti foto hero.
+4. `static/banner.webp` dipakai di atas halaman `/menu`.
+5. Jalankan `npm run og` → regenerasi `static/og.jpg` untuk preview media sosial.
 
 ## Tambah / ubah produk
 

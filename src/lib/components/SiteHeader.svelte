@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { config } from '$lib/config.js';
 
@@ -7,16 +8,36 @@
 		{ href: '/menu', label: 'Menu' },
 		{ href: '/lokasi', label: 'Kunjungi' }
 	];
+
+	let navHidden = $state(false);
+
+	onMount(() => {
+		let lastY = window.scrollY;
+
+		const onScroll = () => {
+			const y = window.scrollY;
+
+			if (y < 96) {
+				navHidden = false;
+			} else if (y > lastY + 8) {
+				navHidden = true;
+			} else if (y < lastY - 8) {
+				navHidden = false;
+			}
+
+			lastY = y;
+		};
+
+		window.addEventListener('scroll', onScroll, { passive: true });
+		return () => window.removeEventListener('scroll', onScroll);
+	});
 </script>
 
-<div class="bg-ink px-4 py-2 text-paper">
-	<div class="mx-auto flex max-w-6xl items-center justify-between gap-4 font-mono text-[10px] tracking-[0.08em] sm:text-[11px]">
-		<span class="truncate">{config.address}</span>
-		<span class="hidden shrink-0 sm:inline">PESAN LANGSUNG LEWAT WHATSAPP</span>
-	</div>
-</div>
-
-<header class="border-b border-ink/20 bg-paper px-4">
+<header
+	class="sticky top-0 z-50 border-b border-ink/20 bg-paper px-4 transition-transform duration-300 ease-out focus-within:translate-y-0 {navHidden
+		? '-translate-y-full'
+		: 'translate-y-0'}"
+>
 	<div class="mx-auto flex min-h-18 max-w-6xl items-center justify-between gap-4 py-3">
 		<a href="/" class="flex min-w-0 items-center gap-2.5" aria-label="{config.name}, beranda">
 			<span class="h-3 w-3 shrink-0 bg-brand"></span>

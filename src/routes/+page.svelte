@@ -1,8 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { config } from '$lib/config.js';
+	import catalogData from '$lib/data/products.json';
 	import { DAY_NAMES, formatHours, isOpenNow, zonedDayAndMinutes } from '$lib/format.js';
 	import { buildJsonLdScript } from '$lib/seo.js';
+	import type { Product } from '$lib/types.js';
+
+	const products = catalogData.products as Product[];
+	const heroDishes = ['bakso-spesial', 'mie-ayam', 'nasi-goreng-kampung', 'sate']
+		.map((id) => products.find((product) => product.id === id))
+		.filter((product): product is Product => Boolean(product));
+	const waUrl = `https://wa.me/${config.whatsapp}`;
 	const jsonLd = buildJsonLdScript();
 	const title = `${config.name} — ${config.tagline}`;
 	const canonical = `${config.siteUrl}/`;
@@ -52,65 +60,46 @@
 </svelte:head>
 
 <main>
-	<section class="px-4 pb-12 pt-10 sm:pb-18 sm:pt-16">
-		<div class="mx-auto max-w-6xl">
-			<div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-8">
-				<div class="min-w-0 lg:col-span-7 lg:pt-8">
-					<p class="mono-label text-brand">LOA JANAN ILIR, SAMARINDA</p>
-					<h1 class="mt-5 max-w-3xl break-words font-display text-[clamp(2.9rem,12vw,7.5rem)] font-bold leading-[0.82] tracking-[-0.075em]">
-						Rasa rumah,<br />
-						<span class="font-serif font-medium italic tracking-[-0.06em]">tanpa perlu<br class="sm:hidden" /> <span class="inline-block bg-brand px-[0.1em] text-paper">pulang.</span></span>
-					</h1>
-					<p class="mt-7 max-w-xl font-serif text-xl leading-[1.3] text-ink/75 sm:text-2xl">
-						Bakso, mie ayam, soto, dan camilan dari dapur kami. Pilih menu, tulis pesanan, lalu kirim langsung ke WhatsApp.
-					</p>
-					<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-						<a href="/menu" class="print-button">Lihat menu</a>
-						<a href="#dapur" class="text-link text-sm">Kenal dapurnya</a>
-					</div>
-				</div>
+	<!-- 4.5625rem = tinggi SiteHeader (72px + 1px border), agar total layar pertama pas 100svh -->
+	<section class="relative flex h-[calc(100svh-4.5625rem)] flex-col overflow-hidden pt-5 sm:pt-6">
+		<div class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 pb-6 sm:pb-8">
+			<h1 class="text-center font-display text-[clamp(3rem,min(12.5vw,14svh),10rem)] font-bold leading-[0.8] tracking-[-0.075em]">
+				<span class="block">Rasa rumah,</span>
+				<span class="block font-serif font-medium italic tracking-[-0.06em] text-ink/90">tanpa perlu</span>
+				<span class="block">
+					<span class="inline-block bg-brand px-[0.1em] pb-[0.04em] text-paper">pulang.</span>
+				</span>
+			</h1>
 
-				<div class="mx-auto w-full max-w-md lg:col-span-5 lg:mt-0 lg:max-w-none">
-					<div class="relative">
-						<div class="absolute inset-x-4 bottom-[-14px] top-5 bg-brand"></div>
-						<a href="/menu" class="relative block border border-ink bg-paper" aria-label="Lihat menu">
-							<img
-								src="/landing.jpg"
-								alt="Pilihan hidangan Warung Citarasa"
-								width="720"
-								height="1280"
-								fetchpriority="high"
-								class="aspect-[4/5] w-full object-cover"
-							/>
-						</a>
-					</div>
-					<div class="relative mt-5 flex items-start gap-3 border-t border-ink pt-3">
-						<span class="font-mono text-sm text-brand">01</span>
-						<p class="font-serif text-base leading-snug">
-							<strong class="font-display">Warung Citarasa.</strong> Dari dapur, langsung ke meja makanmu.
+			<div class="mt-auto border-t-2 border-ink pt-5">
+				<div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+					<div class="min-w-0">
+						<p class="max-w-xl font-serif text-xl leading-[1.35] text-ink/75 sm:text-[22px]">
+							Bakso, mie ayam, soto, dan camilan dari dapur kami. Pilih menu, tulis pesanan, lalu kirim langsung ke WhatsApp.
 						</p>
+						<p class="mt-4 font-mono text-[10px] tracking-[0.08em] text-ink/50 [@media(max-height:700px)]:hidden">{fulfillment}</p>
+					</div>
+					<div class="flex flex-wrap items-center gap-x-6 gap-y-4 lg:shrink-0">
+						<a href="/menu" class="print-button">Lihat menu</a>
+						<a href={waUrl} target="_blank" rel="noopener noreferrer" class="text-link text-sm">Pesan via WhatsApp</a>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="mt-14 grid border-y border-ink/25 sm:grid-cols-3">
-				<div class="border-b border-ink/25 px-0 py-5 sm:border-b-0 sm:border-r sm:px-5">
-					<p class="mono-label text-ink/55">JAM BUKA</p>
-					<p class="mt-2 font-display text-lg font-semibold">
-						{today === null ? 'Setiap hari' : `${DAY_NAMES[today]}, hari ini`} · {today === null ? '10.00–21.00' : formatHours(config.hours[today])}
-					</p>
-				</div>
-				<div class="border-b border-ink/25 px-0 py-5 sm:border-b-0 sm:border-r sm:px-5">
-					<p class="mono-label text-ink/55">CARA TERIMA</p>
-					<p class="mt-2 font-display text-lg font-semibold">{fulfillment}</p>
-				</div>
-				<div class="px-0 py-5 sm:px-5">
-					<p class="mono-label text-ink/55">STATUS DAPUR</p>
-					<p class="mt-2 flex items-center gap-2 font-display text-lg font-semibold">
-						<span class="h-2.5 w-2.5 {openNow === null ? 'bg-ink/35' : openNow ? 'bg-brand' : 'bg-ink/35'}"></span>
-						{openNow === null ? 'Cek jam buka' : openNow ? 'Buka sekarang' : 'Sudah tutup'}
-					</p>
-				</div>
+		<div class="h-[38svh] min-h-0 border-t-2 border-ink sm:h-[32svh]">
+			<div class="grid h-full grid-cols-2 grid-rows-2 gap-px bg-ink/25 lg:grid-cols-4 lg:grid-rows-1">
+				{#each heroDishes as dish (dish.id)}
+					<figure class="group relative min-h-0 overflow-hidden bg-paper">
+						<img
+							src={dish.image ?? '/products/placeholder.svg'}
+							alt={dish.description ?? dish.name}
+							loading="eager"
+							decoding="async"
+							class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+						/>
+					</figure>
+				{/each}
 			</div>
 		</div>
 	</section>
